@@ -22,7 +22,7 @@ module.exports = async (Discord, client, message) => {
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
       
-      message.channel.send(afk)
+      return message.channel.send(afk)
     } else return;
   })
   
@@ -37,7 +37,7 @@ module.exports = async (Discord, client, message) => {
         .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
         
-        message.channel.send(afk2)
+        return message.channel.send(afk2)
       } else return;
     })
   }
