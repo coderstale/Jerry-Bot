@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Afk = require('../../models/afk-schema')
 const cooldowns = new Map();
-module.exports = (Discord, client, message) => {
+module.exports = async(Discord, client, message) => {
   const prefix = require('../../config.json').prefix;
   
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
