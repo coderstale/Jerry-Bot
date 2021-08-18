@@ -23,6 +23,7 @@ module.exports = async (Discord, client, message) => {
       .setTimestamp()
       
       return message.channel.send(afk)
+      data.save()
     } else return;
   })
   
@@ -38,6 +39,7 @@ module.exports = async (Discord, client, message) => {
         .setTimestamp()
         
         return message.channel.send(afk2)
+        data.save()
       } else return;
     })
   }
