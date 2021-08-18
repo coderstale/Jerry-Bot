@@ -1,19 +1,9 @@
 const mongoose = require('mongoose');
 // const Afk = require('../../models/afk-schema')
-const Guild = require('../../models/prefixmodel')
 const cooldowns = new Map();
 module.exports = async (Discord, client, message) => {
-  let guildProfile = await Guild.findOne({ guildID: message.guild.id });
-  if (!guildProfile) {
-    guildProfile = await new Guild({
-      _id: mongoose.Types.ObjectId(),
-      guildID: message.guild.id
-    });
-    await guildProfile.save().catch(err => console.log(err));
-  }
-  client.prefix = guildProfile.prefix
-  const prefix = guildProfile.prefix
-
+  
+  const prefix = ("../../config.json").prefix
 
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
