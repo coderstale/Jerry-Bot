@@ -1,7 +1,30 @@
+const mongoose = require('mongoose');
+const Afk = require('../../models/afk-schema')
 const cooldowns = new Map();
 module.exports = (Discord, client, message) => {
   const prefix = require('../../config.json').prefix;
+  
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
+  
+  if (await Afk.findOne({ userID: message.author.id })) {
+        let afkProfile = await Afk.findOne({ userID: message.author.id });
+        if (afkProfile.messageLeft == 1) {
+            await Afk.findOneAndDelete({ userID: message.author.id });
+            message.channel.send("You are out of AFK mode")
+        } else {
+            await Afk.findOneAndUpdate({ userID: message.author.id }, { messageLeft: afkProfile.messageLeft - 1 });
+        }
+
+    }
+
+    if (message.mentions.members.first()) {
+        await message.mentions.members.forEach(async member => {
+            let afkProfile = await Afk.findOne({ userID: member.user.id })
+            if (afkProfile) message.channel.send(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`)
+        })
+    }
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
