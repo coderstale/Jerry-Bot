@@ -8,23 +8,23 @@ module.exports = async (Discord, client, message) => {
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-//   if (await Afk.findOne({ userID: message.author.id })) {
-//     let afkProfile = await Afk.findOne({ userID: message.author.id });
-//     if (afkProfile.messageLeft == 1) {
-//       await Afk.findOneAndDelete({ userID: message.author.id });
-//       message.channel.send(new Discord.MessageEmbed().setDescription('**Your AFK is now Removed!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
-//     } else {
-//       await Afk.findOneAndUpdate({ userID: message.author.id }, { messageLeft: afkProfile.messageLeft - 1 });
-//     }
+  if (await Afk.findOne({ userID: message.author.id })) {
+    let afkProfile = await Afk.findOne({ userID: message.author.id });
+    if (afkProfile.messageLeft == 1) {
+      await Afk.findOneAndDelete({ userID: message.author.id });
+      message.channel.send(new Discord.MessageEmbed().setDescription('**Your AFK is now Removed!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+    } else {
+      await Afk.findOneAndUpdate({ userID: message.author.id }, { messageLeft: afkProfile.messageLeft - 1 });
+    }
 
-//   }
+  }
 
-//   if (message.mentions.members.first()) {
-//     await message.mentions.members.forEach(async member => {
-//       let afkProfile = await Afk.findOne({ userID: member.user.id })
-//       if (afkProfile) message.channel.send(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
-//     })
-//   } //(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
+  if (message.mentions.members.first()) {
+    await message.mentions.members.forEach(async member => {
+      let afkProfile = await Afk.findOne({ userID: member.user.id })
+      if (afkProfile) message.channel.send(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
+    })
+  } //(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
