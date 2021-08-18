@@ -1,30 +1,78 @@
 const mongoose = require('mongoose');
-const Afk = require('../../models/afk-schema')
+const db = require('../../models/afk-schema')
+const moment = require('moment');
+const { MessageEmbed } = require('discord.js');
 const cooldowns = new Map();
 module.exports = async (Discord, client, message) => {
   
   const prefix = require("../../config.json").prefix;
+  
 
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-  if (await Afk.findOne({ userID: message.author.id })) {
-    let afkProfile = await Afk.findOne({ userID: message.author.id });
-    if (afkProfile.messageLeft == 1) {
-      await Afk.findOneAndDelete({ userID: message.author.id });
-      message.channel.send(new Discord.MessageEmbed().setDescription('**Your AFK is now Removed!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
-    } else {
-      await Afk.findOneAndUpdate({ userID: message.author.id }, { messageLeft: afkProfile.messageLeft - 1 });
-    }
-
-  }
-
-  if (message.mentions.members.first()) {
-    await message.mentions.members.forEach(async member => {
-      let afkProfile = await Afk.findOne({ userID: member.user.id })
-      if (afkProfile) message.channel.send(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
+  client.on('messageCreate', async(message) => {
+  if(message.author.bot) return;
+  db.findOne({ Guild: message.guild.id, Member: message.author.id }, async(err, data) => {
+    if(err) throw err;
+    if(data) {
+      data.delete()
+      const afk = new MessageEmbed()
+      .setTitle('Afk Removed')
+      .setDescription(`${message.author.tag} afk has been removed`)
+      .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+      .setTimestamp()
+      
+      message.channel.send({ embeds: [afk]})
+    } else return;
+  })
+  
+  if(message.mentions.members.first()) {
+    db.findOne({ Guild: message.guild.id, Member: message.mentions.members.first().id }, async(err, data) => {
+      if(err) throw err;
+      if(data) {
+        const member = message.guild.members.cache.get(data.Member);
+        const afk = new MessageEmbed()
+        .setTitle(`${member.user.tag} is Afk`)
+        .setDescription(`${data.Content} - ${moment(parseInt(data.TimeAgo)).fromNow()}`)
+        .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+        .setTimestamp()
+        
+        message.channel.send({ embeds: [afk]})
+      } else return;
     })
-  } //(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
+  }
+})
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+//   if (await Afk.findOne({ userID: message.author.id })) {
+//     let afkProfile = await Afk.findOne({ userID: message.author.id });
+//     if (afkProfile.messageLeft == 1) {
+//       await Afk.findOneAndDelete({ userID: message.author.id });
+//       message.channel.send(new Discord.MessageEmbed().setDescription('**Your AFK is now Removed!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+//     } else {
+//       await Afk.findOneAndUpdate({ userID: message.author.id }, { messageLeft: afkProfile.messageLeft - 1 });
+//     }
+
+//   }
+
+//   if (message.mentions.members.first()) {
+//     await message.mentions.members.forEach(async member => {
+//       let afkProfile = await Afk.findOne({ userID: member.user.id })
+//       if (afkProfile) message.channel.send(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
+//     })
+//   } //(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
