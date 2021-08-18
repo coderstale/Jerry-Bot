@@ -16,7 +16,6 @@ module.exports = async (Discord, client, message) => {
     if(err) throw err;
     if(data) {
       data.delete()
-      data.save()
       const afk = new MessageEmbed()
       .setTitle('Afk Removed')
       .setDescription(`${message.author.tag} afk has been removed`)
