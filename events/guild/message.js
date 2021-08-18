@@ -1,30 +1,41 @@
 const mongoose = require('mongoose');
-const Afk = require('../../models/afk-schema')
+// const Afk = require('../../models/afk-schema')
+const Guild = require('../../models/prefixmodel')
 const cooldowns = new Map();
-module.exports = async(Discord, client, message) => {
-  const prefix = require('../../config.json').prefix;
-  
+module.exports = async (Discord, client, message) => {
+  let guildProfile = await Guild.findOne({ guildID: message.guild.id });
+  if (!guildProfile) {
+    guildProfile = await new Guild({
+      _id: mongoose.Types.ObjectId(),
+      guildID: message.guild.id
+    });
+    await guildProfile.save().catch(err => console.log(err));
+  }
+  client.prefix = guildProfile.prefix
+  const prefix = guildProfile.prefix
+
+
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  
-  if (await Afk.findOne({ userID: message.author.id })) {
-        let afkProfile = await Afk.findOne({ userID: message.author.id });
-        if (afkProfile.messageLeft == 1) {
-            await Afk.findOneAndDelete({ userID: message.author.id });
-            message.channel.send(new Discord.MessageEmbed().setDescription('**Your AFK is now Removed!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
-        } else {
-            await Afk.findOneAndUpdate({ userID: message.author.id }, { messageLeft: afkProfile.messageLeft - 1 });
-        }
 
-    }
+//   if (await Afk.findOne({ userID: message.author.id })) {
+//     let afkProfile = await Afk.findOne({ userID: message.author.id });
+//     if (afkProfile.messageLeft == 1) {
+//       await Afk.findOneAndDelete({ userID: message.author.id });
+//       message.channel.send(new Discord.MessageEmbed().setDescription('**Your AFK is now Removed!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+//     } else {
+//       await Afk.findOneAndUpdate({ userID: message.author.id }, { messageLeft: afkProfile.messageLeft - 1 });
+//     }
 
-    if (message.mentions.members.first()) {
-        await message.mentions.members.forEach(async member => {
-            let afkProfile = await Afk.findOne({ userID: member.user.id })
-            if (afkProfile) message.channel.send(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
-        })
-    } //(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
-//---------------------------------------------------------------------------------------------------------------------------------------------------------
+//   }
+
+//   if (message.mentions.members.first()) {
+//     await message.mentions.members.forEach(async member => {
+//       let afkProfile = await Afk.findOne({ userID: member.user.id })
+//       if (afkProfile) message.channel.send(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
+//     })
+//   } //(new Discord.MessageEmbed().setDescription(`**${member.user.tag}**, is currently in AFK: **${afkProfile.reason}**`).setColor('#e25800'));
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
