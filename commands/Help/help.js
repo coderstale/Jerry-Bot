@@ -7,10 +7,10 @@ module.exports = {
       .setAuthor(message.author.username)
       .setTitle('__**Help**__ <:Cookiechu:875018864403046450>')
       .addFields(
-        { name: '**General Commands:**', value: '`invite` | `ping`' },
-        { name: '**Fun Commands:**', value: '`8ball` | `hack` | `howgay` | `iqrate` | `kiss` | `simprate`'},
-        { name: '**Moderation Commands:**', value: '`ban` | `kick` | `mute` | `unmute`' },
-        { name: '**Utility Commands:**', value: '`avatar` | `purge` | `remind` | `serverinfo` |`slowmode` | `yt` | `lock` | `unlock` | `servericon`' },
+        { name: '**General Commands:**', value: '`invite` | `ping` |' },
+        { name: '**Fun Commands:**', value: '`8ball` | `hack` | `howgay` | `iqrate` | `kiss` | `simprate` |'},
+        { name: '**Moderation Commands:**', value: '`ban` | `kick` | `mute` | `unmute` |' },
+        { name: '**Utility Commands:**', value: '`avatar` | `purge` | `remind` | `serverinfo` |`slowmode` | `yt` | `lock` | `unlock` | `servericon` | `afk` |' },
         { name: '\u200b', value: 'bot made by ᗪᖇᗩᑕᑌᒪᗩ#0458' }
       )
 
