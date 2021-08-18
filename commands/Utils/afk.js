@@ -45,7 +45,7 @@ module.exports = {
         .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
         
-        message.channel.send({ embeds: [afksave]})
+        message.channel.send(afksave)
       }
     })
   }
