@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cooldowns = new Map();
 module.exports = async (Discord, client, message) => {
   
-  const prefix = require("../../config.json").prefix
+  const prefix = require("../../config.json").prefix;
 
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
