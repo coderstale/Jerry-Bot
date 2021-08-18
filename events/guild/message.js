@@ -14,11 +14,8 @@ module.exports = async (Discord, client, message) => {
   if(message.author.bot) return;
   db.findOne({ Guild: message.guild.id, Member: message.author.id }, async(err, data) => {
     if(err) throw err;
-    if(data.Member==message.author.id) {
-data.delete()
-//..
-}
     if(data) {
+      data.delete()
       const afk = new MessageEmbed()
       .setTitle('Afk Removed')
       .setDescription(`${message.author.tag} afk has been removed`)
