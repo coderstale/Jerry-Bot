@@ -31,13 +31,13 @@ module.exports = async (Discord, client, message) => {
       if(err) throw err;
       if(data) {
         const member = message.guild.members.cache.get(data.Member);
-        const afk = new MessageEmbed()
+        const afk2 = new MessageEmbed()
         .setTitle(`${member.user.tag} is Afk`)
         .setDescription(`${data.Content} - ${moment(parseInt(data.TimeAgo)).fromNow()}`)
         .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
         
-        message.channel.send(afk)
+        message.channel.send(afk2)
       } else return;
     })
   }
