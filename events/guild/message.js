@@ -10,7 +10,7 @@ module.exports = async (Discord, client, message) => {
 
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  client.on('messageCreate', async(message) => {
+  client.on('message', async(message) => {
   if(message.author.bot) return;
   db.findOne({ Guild: message.guild.id, Member: message.author.id }, async(err, data) => {
     if(err) throw err;
