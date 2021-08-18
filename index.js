@@ -8,7 +8,7 @@ client.events = new Discord.Collection();
   require(`./handlers/${handler}`)(client, Discord);
 })
 
-mongoose.connect("mongodb+srv://coderstale:Thejoy@2929@jerry.emhgt.mongodb.net/Data",{
+mongoose.connect("mongodb+srv://coderstale:Thejoy@2929@jerry.emhgt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{
   useUnifiedTopology: true,
   useNewUrlParser: true,
 }).then(()=>{
