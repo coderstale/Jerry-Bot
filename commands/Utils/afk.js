@@ -13,7 +13,7 @@ module.exports = {
                 reason: reason, 
             }); 
             await afkProfile.save(); 
-            message.channel.send(new Discord.MessageEmbed().setDescription('**You are now in AFK** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+            message.channel.send(new Discord.MessageEmbed().setDescription(`*You are now in AFK:* ***${afkProfile.reason}***`).setColor('#e25800'));
         } else return message.channel.send(new Discord.MessageEmbed().setDescription('**You are aleady on AFK** <:Cookiechu:875018864403046450>').setColor('#e25800'));
     }
-}
+} //(new Discord.MessageEmbed().setDescription(`*You are now in AFK:* ***${afkProfile.reason}***`).setColor('#e25800'));
