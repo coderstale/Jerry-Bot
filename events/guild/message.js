@@ -1,7 +1,3 @@
-const mongoose = require('mongoose');
-const db = require('../../models/afk-schema')
-const moment = require('moment');
-const { MessageEmbed } = require('discord.js');
 const cooldowns = new Map();
 module.exports = async (Discord, client, message) => {
   
