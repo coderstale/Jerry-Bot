@@ -1,5 +1,6 @@
 module.exports = {
   name: 'ban',
+  aliases: ['bun'],
   cooldown: 5,
   description: "This command bans a member!",
   execute(client, message, args, cmd, Discord) {
