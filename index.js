@@ -17,4 +17,4 @@ mongoose.connect("mongodb+srv://coderstale:Thejoy@2929@jerry.emhgt.mongodb.net/D
   console.log("Error in index.js mongo db!")
 });
 
-client.login("ODczNDEyMTM2NTc4MjExODQw.YQ4CcA.X5R4MtgR7_qpkvMyfm7LqvwoLow");
+client.login("ODkzNDgzODY4Njg5MTYyMjcw.YVcHsg.hH83HRmvD4P5aMpqarlc34h9ptQ");
