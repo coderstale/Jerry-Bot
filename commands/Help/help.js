@@ -3,7 +3,7 @@ module.exports = {
   description: "commands list",
   execute(client, message, args, cmd, Discord) {
     const newEmbed = new Discord.MessageEmbed()
-      .setColor('#e25800')
+      .setColor('#dc85e2')
       .setAuthor(message.author.username)
       .setTitle('__**Help**__ <:Cookiechu:875018864403046450>')
       .addFields(
