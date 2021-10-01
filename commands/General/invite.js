@@ -8,7 +8,7 @@ module.exports = {
     .setColor("#dc85e2")
     .setTitle("Click here to Invite")
     .setURL("https://discord.com/api/oauth2/authorize?client_id=893483868689162270&permissions=8&scope=bot")
-    .setImage('https://www.wallpapers13.com/wp-content/uploads/2016/11/Tom-and-Jerry-Tasty-sandwich-for-Tom-HD-Wallpaper-for-laptop-and-tablet-1920x1200-1366x768.jpg')
+    .setImage('https://media2.giphy.com/media/3DUoXzfUNybiU/giphy.gif')
 
     message.channel.send(newEmbed);
   }
