@@ -1,6 +1,6 @@
 module.exports = (Discord, client) =>{
 
-    console.log('Dracula is Alive!');
+    console.log('Its Kwikis Bday!');
    client.user.setPresence({
     status: `dnd`,
     activity: {
