@@ -11,7 +11,7 @@ module.exports = {
         { name: '**Fun Commands:**', value: '`8ball` | `hack` | `howgay` | `iqrate` | `kiss` | `simprate` |'},
         { name: '**Moderation Commands:**', value: '`ban` | `kick` | `mute` | `unmute` |' },
         { name: '**Utility Commands:**', value: '`avatar` | `purge` | `remind` | `serverinfo` |`slowmode` | `yt` | `lock` | `unlock` | `servericon` | `afk` |' },
-        { name: '\u200b', value: 'bot made by t0m | yumyum jerry#3404' }
+        { name: '\u200b', value: 'bot made by t0m.' }
       )
 
     message.author.send(newEmbed)
