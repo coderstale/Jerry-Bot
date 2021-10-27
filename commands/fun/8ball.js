@@ -40,7 +40,7 @@ module.exports = {
 
     let embed = new MessageEmbed()
 
-      .setColor("#e25800")
+      .setColor("#dc85e2")
       .addField(`**${message.author.username}'s question**`, question)
       .addField('**the 8ball says**', replies[result])
       .setThumbnail(message.author.displayAvatarURL())
