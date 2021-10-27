@@ -5,7 +5,7 @@ module.exports = {
     const newEmbed = new Discord.MessageEmbed()
       .setColor('#dc85e2')
       .setAuthor(message.author.username)
-      .setTitle('__**Help**__ <:Cookiechu:875018864403046450>')
+      .setTitle('__**Help**__ <a:cuteumb:902845972831432704>')
       .addFields(
         { name: '**General Commands:**', value: '`invite` | `ping` |' },
         { name: '**Fun Commands:**', value: '`8ball` | `hack` | `howgay` | `iqrate` | `kiss` | `simprate` |'},
@@ -17,7 +17,7 @@ module.exports = {
     message.author.send(newEmbed)
 
 
-    message.channel.send(new Discord.MessageEmbed().setDescription('**Check DMs for Help.** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+    message.channel.send(new Discord.MessageEmbed().setDescription('**Check DMs for Help.** <a:cuteumb:902845972831432704>').setColor('#dc85e2'));
 
 }
 }
