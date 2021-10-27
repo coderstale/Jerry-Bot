@@ -71,7 +71,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setDescription(`<@${member.user.id}>`)
       .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL())
-      .setColor('#e25800')
+      .setColor('#dc85e2')
       .setFooter(`ID: ${message.author.id}`)
       .setThumbnail(member.user.displayAvatarURL())
       .setTimestamp()
