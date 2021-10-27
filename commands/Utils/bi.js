@@ -19,7 +19,7 @@ module.exports = {
     const embed = new MessageEmbed()
       .setURL(client.web)
       .setThumbnail(client.user.displayAvatarURL())
-      .setColor("#e25800")
+      .setColor("#dc85e2")
       .addField("General",
     [
         `**❯ Client:** ${client.user.tag
