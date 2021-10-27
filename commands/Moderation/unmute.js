@@ -37,15 +37,15 @@ module.exports = {
   async execute(client, message, args, cmd, Discord) {
     if (!message.member.hasPermission("MANAGE_ROLES")) {
       return message.channel.send(
-        "Sorry but you do not have permission to unmute anyone"
+        "**Sorry but you do not have permission to unmute anyone**"
       );
     }
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("I do not have permission to manage roles.");
+      return message.channel.send("**I do not have permission to manage roles.**");
     }
     const member = message.mentions.members.first();
     if (!member) {
-      return message.lineReply("Please mention the member to who you want to unmute");
+      return message.lineReply("**Please mention the member to who you want to unmute**");
     }
     muteSchema.findOne({ Guild: member.guild.id }, async (err, data) => {
       if (!data) return;
@@ -55,7 +55,7 @@ module.exports = {
           return data.delete()
         }
         if (!role.id) {
-          return message.lineReply("\```Muted role undetected, Please setup the mute role! More info on Config page (`>help`) \``` ");
+          return message.lineReply("\```Muted role undetected, Please setup the mute role! More info on Config page (`k!help`) \``` ");
         }
         await member.roles.remove(role.id);
       }
@@ -68,7 +68,7 @@ module.exports = {
     //   message
     // );
     const unmute = new MessageEmbed()
-      .setTitle('<:SamiDev:875019906876317746>  Mute Removed').setColor('GREEN')
+      .setTitle('<a:luvforkwiki:902844090117402625>  **Mute Removed**').setColor('dc85e2')
       .addFields(
         { name: `Unmuted :`, value: `${message.mentions.users.first()}`, inline: true },
       )
