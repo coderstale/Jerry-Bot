@@ -15,7 +15,7 @@ module.exports = {
 
     if (user == message.author) {
       const IQEmbed = new MessageEmbed()
-        .setColor('#e25800')
+        .setColor('#dc85e2')
         .setTitle('Your IQ Rate')
         .setDescription(`Your IQ is **${rate}** `)
         .setFooter(`${message.author.tag}`,
