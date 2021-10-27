@@ -17,7 +17,7 @@ module.exports = {
         } else {
             const Embed2 = new MessageEmbed()
             .setDescription(`${user} is ${rate}% simp `)
-            .setColor('#e25800')
+            .setColor('#dc85e2')
             .setFooter(`${user.tag}`,
             user.displayAvatarURL({ dynamic: true })
             )
