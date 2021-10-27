@@ -55,17 +55,17 @@ module.exports = {
   async execute(client, message, args, cmd, Discord) {
     try{
     if (!message.member.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send(new Discord.MessageEmbed().setDescription('**You do not have permissions to Mute a user!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+      return message.channel.send(new Discord.MessageEmbed().setDescription('**You do not have permissions to Mute a user!** <:thunkthunkkwiki:902845201415036938>').setColor('#dc85e2'));
     }
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
       return message.channel.send("I do not have permission to mute");
     }
     const member = message.mentions.members.first();
     if (!member) {
-      return message.channel.send(new Discord.MessageEmbed().setDescription('**Please mention someone to mute.** <:Cookiechu:875018864403046450>').setColor('#e25800'));;
+      return message.channel.send(new Discord.MessageEmbed().setDescription('**Please mention someone to mute.** <a:cuteumb:902845972831432704>').setColor('#dc85e2'));;
     }
     if (member.id === message.author.id) {
-      return message.channel.send(new Discord.MessageEmbed().setDescription('**no!** <:Cookiechu:875018864403046450>').setColor('#e25800'));;
+      return message.channel.send(new Discord.MessageEmbed().setDescription('**Shu-Shu!** <a:luvforkwiki:902844090117402625>').setColor('#dc85e2'));;
     }
     const vrole = member.roles.cache
     let reason = args.slice(1).join(" " || 'No reason given');
@@ -77,7 +77,7 @@ module.exports = {
           return data.delete()
         }
         if (!role.id) {
-          return message.lineReply(new Discord.MessageEmbed().setDescription('**Muted role not assigned, please use j!setmuterole <role_id> to assign.** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+          return message.lineReply(new Discord.MessageEmbed().setDescription('**Muted role not assigned, please use k!setmuterole <role_id> to assign.** <:thunkthunkkwiki:902845201415036938>').setColor('#dc85e2'));
         }
         await member.roles.add(role.id);
       }
@@ -92,7 +92,7 @@ module.exports = {
     //   message
     // );
     const mute = new MessageEmbed()
-      .setTitle('<:SamiDev:875019906876317746>  Mute Added').setColor('GREEN')
+      .setTitle('<a:cuteumb:902845972831432704> Mute Added').setColor('#dc85e2')
       .addFields(
         { name: `Muted :`, value: `${message.mentions.users.first()}`, inline: true },
         { name: `Reason :`, value: `${reason}`, inline: true },
@@ -102,7 +102,7 @@ module.exports = {
         message.author.displayAvatarURL({ dynamic: true }))
     await message.channel.send(mute);
     } catch(err){
-      message.reply(new Discord.MessageEmbed().setDescription('```an Unexpected error has accured.```').setColor('#e25800'));
+      message.reply(new Discord.MessageEmbed().setDescription('```an Unexpected error has accured.```').setColor('#dc85e2'));
     }
   }
 };
