@@ -7,7 +7,7 @@ module.exports = {
     if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(new Discord.MessageEmbed().setDescription('**You do not have permissions to use this command!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
 
     message.channel.updateOverwrite(message.channel.guild.roles.everyone, { VIEW_CHANNEL: true, SEND_MESSAGES: true });
-    message.channel.send(new Discord.MessageEmbed().setDescription('**This Channel is now Un-Locked!** <:Cookiechu:875018864403046450>').setColor('#e25800'));
+    message.channel.send(new Discord.MessageEmbed().setDescription('**This Channel is now Un-Locked!** <a:cuteumb:902845972831432704>').setColor('#dc85e2'));
   }
 }
 
