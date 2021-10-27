@@ -24,7 +24,7 @@ module.exports = {
       .setDescription(`Video by - **${video.author.name}**`)
       .setURL(video.url)
       .setImage(video.bestThumbnail.url)
-      .setColor("RED")
+      .setColor("dc85e2")
       .setFooter(`Views : ${video.views.toLocaleString()} | duration : ${video.duration}`)
 
     message.channel.send(embed)
