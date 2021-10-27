@@ -25,7 +25,7 @@ module.exports = async (Discord, client, message) => {
       if (current_time < expiration_time) {
         const time_left = (expiration_time - current_time) / 1000;
 
-        return message.reply(`*Please wait* ***${time_left.toFixed(1)}*** *more* ***seconds*** *before using* ***${command.name}*** <:stop:875640302684229642>`);
+        return message.reply(new Discord.MessageEmbed().setDescription(`*Please wait* ***${time_left.toFixed(1)}*** *more* ***seconds*** *before using* ***${command.name}*** <:stop:875640302684229642>`).setColor('#dc85e2'));
       }
     }
 
@@ -39,8 +39,9 @@ module.exports = async (Discord, client, message) => {
   try {
     command.execute(client, message, args, cmd, Discord);
   } catch (err) {
-    message.reply("**The command does not exsist!**");
+    message.reply(new Discord.MessageEmbed().setDescription('**The command does not exsist** <a:cuteumb:902845972831432704>').setColor('#dc85e2'));
   }
-
+//
+  //
 }
 
