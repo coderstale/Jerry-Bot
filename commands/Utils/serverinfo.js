@@ -45,7 +45,7 @@ description: 'Show information on the current server',
         const ServerInfoEmbed = new Discord.MessageEmbed()
             .setThumbnail(message.guild.iconURL({ dynamic: true }))
             .setAuthor(message.author.username, message.author.displayAvatarURL())
-            .setColor('#e25800')
+            .setColor('#dc85e2')
             .setDescription(`Shows the server info for \`${message.guild.name}\``)
             .addField('General Info', [
                 `**ID:** ${message.guild.id}`,
