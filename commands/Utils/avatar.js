@@ -39,7 +39,7 @@ module.exports = {
     execute: async(client, message, args, cmd, Discord) => {
 
         const target = message.mentions.users.first()
-        const color = "#e25800";
+        const color = "#dc85e2";
 
         if((message.guild.me.permissionsIn(message.channel).has("SEND_MESSAGES")) || 
         (message.guild.me.hasPermission("ADMINISTRATOR"))) {
