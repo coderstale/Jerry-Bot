@@ -16,7 +16,7 @@ module.exports = {
     execute: async(client, message, args, cmd, Discord) => {
 
         const target = message.mentions.users.first();
-        const color = "#e25800";
+        const color = "#dc85e2";
         if(!target){
       return message.reply("**Who Will U Kiss?** 💗")
     }
