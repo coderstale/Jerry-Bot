@@ -51,4 +51,4 @@ note: we also want you to remember to use async to avoid erros when using await 
 
 # *Please feel free to use our code in any of your projects!*
 
-***Bot made by t0m | yumyum jerry#3404*** 
+***Bot made by @Tom the Romeow#3568*** 
