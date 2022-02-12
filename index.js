@@ -8,7 +8,7 @@ client.events = new Discord.Collection();
   require(`./handlers/${handler}`)(client, Discord);
 })
 
-mongoose.connect("mongodb+srv://coderstale:Thejoy@2929@jerry.emhgt.mongodb.net/Data",{
+mongoose.connect("Nothing here Idiot!",{
   useUnifiedTopology: true,
   useNewUrlParser: true,
 }).then(()=>{
@@ -17,4 +17,4 @@ mongoose.connect("mongodb+srv://coderstale:Thejoy@2929@jerry.emhgt.mongodb.net/D
   console.log("Error in index.js mongo db!")
 });
 
-client.login("ODkzNDgzODY4Njg5MTYyMjcw.YVcHsg.hH83HRmvD4P5aMpqarlc34h9ptQ");
+client.login("Nothing here Idiot!");
